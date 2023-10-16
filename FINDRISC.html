@@ -66,14 +66,13 @@
 
         <label for="saludocu">¿Autorizas compartir tu información con salud ocupacional?:</label>
         <select id="saludocu" name="saludocu">
-            <option value="1">Si</option>
-            <option value="0">No</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
         </select><br><br>
-
 </form>
         <button type="button" onclick="calcularFINDRISC()">Calcular FINDRISC</button>
     
-    <div id="resultado" style="display:none;">
+    <div id="resultado" style="display:block;">
         <h2>Resultado FINDRISC</h2>
         <p>Su puntaje FINDRISC es: <span id="puntaje"></span></p>
         <p>Riesgo de diabetes: <span id="riesgo"></span></p>
