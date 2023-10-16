@@ -7,6 +7,9 @@
     <h1>Calculadora FINDRISC</h1>
 
     <form id="findrisc-form">
+        <label for="cedula">Número de Cédula:</label>
+        <input type="text" id="cedula" name="cedula" required><br><br>
+
         <label for="edad">Edad:</label>
         <select id="edad" name="edad">
             <option value="0">Menos de 45 años</option>
