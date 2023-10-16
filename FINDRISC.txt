@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora FINDRISC</title>
+</head>
+<body>
+    <h1>Calculadora FINDRISC</h1>
+
+
+    <label for="cedula">Número de Cédula:</label>
+    <input type="text" id="cedula" name="cedula" required><br><br>
+
+    <label for="edad">Edad:</label>
+    <select id="edad"name="edad"> 
+	<option value="" selected disabled></option>
+        <option value="0">Menos de 45 años</option>
+        <option value="2">De 45 a 54 años</option>
+        <option value="3">De 55 a 64 años</option>
+	<option value="4">Más de 64 años</option>
+    </select><br><br>
+    
+    <label for="imc">Índice de Masa Corporal (IMC):</label>
+    <select id="imc"name="imc">
+	<option value="" selected disabled></option>
+        <option value="0">Menos de 25 Kg/m²</option>
+        <option value="1">De 25 a 30 Kg/m²</option>
+        <option value="3">Mayor de 30 Kg/m²</option>
+	    </select><br><br>
+    
+    <label for="circunferencia">Circunferencia de la Cintura (cm):</label>
+     <select id="circunferencia"name="circunferencia">
+	<option value="" selected disabled></option>
+        <option value="0">Mujer, menos de 90 cm</option>
+        <option value="4">Mujer, más de 90 cm</option>
+        <option value="0">Hombre, menos de 94 cm</option>
+	<option value="4">Hombre, más de 94 cm</option>
+	    </select><br><br>
+       
+    <label for="actividad">¿Practicas más de 30 minutos diarios de ejercicio?:</label>
+    <select id="actividad"name="actividad">
+	<option value="" selected disabled></option>
+        <option value="0">Si</option>
+        <option value="2">No</option>
+    </select><br><br>
+
+    <label for="comida">¿Consumes frutas y verduras diariamente?:</label>
+    <select id="comida"name="comida">
+	<option value="" selected disabled></option>
+        <option value="0">Si</option>
+        <option value="1">No</option>
+    </select><br><br>
+
+    <label for="hta">¿Te encuentras tomando medicamentos para la presión alta?:</label>
+    <select id="hta"name="hta">
+	<option value="" selected disabled></option>
+        <option value="0">Si</option>
+        <option value="2">No</option>
+    </select><br><br>
+
+    <label for="glu">¿Alguna vez te han detectado un valor de azúcar en la sangre alto?:</label>
+    <select id="glu"name="glu">
+	<option value="" selected disabled></option>
+        <option value="5">Si</option>
+        <option value="0">No</option>
+    </select><br><br>
+
+    <label for="familiares">¿Alguno de tus familiares ha sido diagnosticado de diabetes?:</label>
+    <select id="familiares"name="familiares">
+	<option value="" selected disabled></option>
+        <option value="0">Ninguno</option>
+        <option value="3">Abuelos, tíos, primos</option>
+        <option value="5">Padres, hermanos o hijos</option>
+    </select><br><br>
+
+    <label for="saludocu">¿Autorizas compartir tu información con salud ocupacional?:</label>
+    <select id="saludocu" name="saludocu">
+	<option value="" selected disabled></option> 
+        <option value="1">Si</option>
+        <option value="0">No</option>
+    </select><br><br>
+    
+
+    <div id="resultado" style="display:none;">
+        <h2>Resultado FINDRISC</h2>
+        <p>Su puntaje FINDRISC es: <span id="puntaje"></span></p>
+        <p>Riesgo de diabetes: <span id="riesgo"></span></p>
+    </div>
+
+  <button type="button" onclick="calcularFINDRISC()">Calcular FINDRISC</button>	
+  <div style="margin-top: 10px;"></div> <!-- Espacio adicional -->
+  <button type="submit" onclick="calcularFINDRISC()">Enviar Resultados</button>
+      </form>
+
+    <script>
+        function calcularFINDRISC() {
+            const edad = parseInt(document.getElementById("edad").value);
+            const imc = parseFloat(document.getElementById("imc").value);
+            const circunferencia = parseFloat(document.getElementById("circunferencia").value);
+            const familiares = parseInt(document.getElementById("familiares").value);
+            const actividad = parseInt(document.getElementById("actividad").value);
+            const comida = parseInt(document.getElementById("comida").value);
+            const hta = parseInt(document.getElementById("hta").value);
+            const glu = parseInt(document.getElementById("glu").value);
+
+            const puntaje = edad + imc + circunferencia + familiares + actividad + comida + hta + glu;
+
+            let resultado = "El puntaje FINDRISC es: " + puntaje + "<br>";
+            if (puntaje <= 6) {
+                resultado += "Riesgo bajo de diabetes. 1 de cada 100 personas desarrollarán diabetes en 10 años";
+            } else if (puntaje <= 11) {
+                resultado += "Riesgo ligeramente alto de diabetes. 1 de cada 25 personas desarrollarán diabetes en 10 años";
+} else if (puntaje <= 14) {
+                resultado += "Riesgo moderado de diabetes. 1 de cada 6 personas desarrollarán diabetes en 10 años. Es recomendable que te practiquen una prueba, visita a tu médico";
+} else if (puntaje <= 17) {
+                resultado += "Riesgo alto de diabetes. 1 de cada 3 personas desarrollarán diabetes en 10 años. Es recomendable que te practiquen una prueba, visita a tu médico";
+            } else {
+                resultado += "Riesgo muy alto de diabetes. 1 de cada 2 personas desarrollarán diabetes en 10 años. Es recomendable que te practiquen una prueba, visita a tu médico.";
+            }
+
+            document.getElementById("resultado").style.display = "block";
+            document.getElementById("puntaje").innerText = puntaje;
+            document.getElementById("riesgo").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    /* Estilos para el formulario */
+    
+   body {
+            font-family: helvetica, sans-serif;
+        }    
+   form {
+        max-width: 300px;
+        margin: 0 auto;
+        font-family: "Helvetica", sans-serif; /* Cambia la fuente aquí */
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    select, input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: "Helvetica", sans-serif; /* Cambia la fuente aquí */
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: "Helvetica", sans-serif; /* Cambia la fuente aquí */
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Estilos para el resultado */
+    #resultado {
+        display: none;
+        margin-top: 20px;
+        font-family: "Helvetica", sans-serif; /* Cambia la fuente aquí */
+    }
+</style>
