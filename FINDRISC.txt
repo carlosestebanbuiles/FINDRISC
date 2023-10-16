@@ -6,7 +6,7 @@
 <body>
     <h1>Calculadora FINDRISC</h1>
 
-
+<form id="findrisc-form" action="procesar_formulario.php" method="post">
     <label for="cedula">Número de Cédula:</label>
     <input type="text" id="cedula" name="cedula" required><br><br>
 
@@ -121,9 +121,6 @@
             document.getElementById("puntaje").innerText = puntaje;
             document.getElementById("riesgo").innerHTML = resultado;
         }
-    </script>
-</body>
-</html>
 
 <style>
     /* Estilos para el formulario */
@@ -173,3 +170,10 @@
         font-family: "Helvetica", sans-serif; /* Cambia la fuente aquí */
     }
 </style>
+   <script>
+        function calcularFINDRISC() {
+            // Lógica de cálculo
+        }
+    </script>
+</body>
+</html>
