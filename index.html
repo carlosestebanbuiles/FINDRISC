@@ -90,6 +90,22 @@
             const glu = parseInt(document.getElementById("glu").value);
             const familiares = parseInt(document.getElementById("familiares").value);
 
+            const respuestaCSV = `${cedula},${edad},${imc},${circunferenca},${actividad},${comida},${hta},${glu},${familiares}`;
+
+            const token = "tu_token_de_acceso"
+            const { Octokit } = require("@octokit/core");
+            const octokit = new Octokit({ auth: token });
+
+            octokit.request("PUT /repos/:owner/:repo/contents/:path", {
+                owner: "carlosestebanbuiles",
+                repo: "FINDRISC",
+                path: "respuestas.csv",
+                message: "Gracias por registrar tu respuesta",
+                content: Buffer.from(respuestaCSV).toString("base64"),
+                committer: {
+                    name: "Carlos Builes",
+                    email: "cbuiles@hptu.org.co"
+
             const puntaje = edad + imc + circunferencia + actividad + comida + hta + glu + familiares;
 
             let resultado = "El puntaje FINDRISC es: " + puntaje + "<br>";
