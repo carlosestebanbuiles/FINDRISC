@@ -104,13 +104,13 @@
                 message: "Gracias por registrar tu respuesta",
                 content: Buffer.from(respuestaCSV).toString("base64"),
                 committer: {
-                    name: "Carlos Builes",
-                    email: "cbuiles@hptu.org.co"
+                    name: "Tu Nombre",
+                    email: "tu_correo@ejemplo.com"
 
             const puntaje = edad + imc + circunferencia + actividad + comida + hta + glu + familiares;
 
             let resultado = "El puntaje FINDRISC es: " + puntaje + "<br>";
-
+            let puntaje = 0;
             if (puntaje <= 6) {
                 resultado += "Riesgo bajo de diabetes. 1 de cada 100 personas desarrollarán diabetes en 10 años.";
             } else if (puntaje <= 11) {
