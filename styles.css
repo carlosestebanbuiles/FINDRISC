@@ -35,7 +35,17 @@ button {
   border: none;
   cursor: pointer;
 }
-
+/* Cambios en los estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  input[type="text"],
+  input[type="email"],
+  button {
+    padding: 8px;
+  }
+}
 /* Aumentar el tamaño de fuente para dispositivos móviles */
 @media (max-width: 768px) {
   body {
