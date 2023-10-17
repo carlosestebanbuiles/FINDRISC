@@ -77,6 +77,9 @@ button {
   .container {
     padding: 10px;
   }
+  body {
+    font-size: 24px; /* Cambia el tamaño de fuente según tus preferencias */
+  }
   .navbar {
     padding: 5px;
   }
