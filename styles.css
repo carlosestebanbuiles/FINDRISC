@@ -36,14 +36,19 @@ button {
   cursor: pointer;
 }
 
-/* Cambios en los estilos para dispositivos móviles */
+/* Aumentar el tamaño de fuente para dispositivos móviles */
 @media (max-width: 768px) {
-  .container {
-    padding: 10px;
+  body {
+    font-size: 18px; /* Cambia el tamaño de fuente según tus preferencias */
   }
+
+  .container {
+    max-width: 100%; /* Hacer que el contenedor ocupe el ancho completo de la pantalla */
+  }
+
   input[type="text"],
   input[type="email"],
   button {
-    padding: 8px;
+    padding: 12px; /* Aumentar el tamaño del relleno para los campos de entrada y botones */
   }
 }
