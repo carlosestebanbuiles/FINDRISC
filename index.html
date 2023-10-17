@@ -91,26 +91,9 @@
             const glu = parseInt(document.getElementById("glu").value);
             const familiares = parseInt(document.getElementById("familiares").value);
 
-            const respuestaCSV = `${cedula},${edad},${imc},${circunferenca},${actividad},${comida},${hta},${glu},${familiares}`;
-
-            const token = "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"
-            const { Octokit } = require("@octokit/core");
-            const octokit = new Octokit({ auth: token });
-
-            octokit.request("PUT /repos/:owner/:repo/contents/:path", {
-                owner: "carlosestebanbuiles",
-                repo: "FINDRISC",
-                path: "respuestas.csv",
-                message: "Gracias por registrar tu respuesta",
-                content: Buffer.from(respuestaCSV).toString("base64"),
-                committer: {
-                    name: "Tu Nombre",
-                    email: "tu_correo@ejemplo.com"
-
             const puntaje = edad + imc + circunferencia + actividad + comida + hta + glu + familiares;
 
             let resultado = "El puntaje FINDRISC es: " + puntaje + "<br>";
-            let puntaje = 0;
             if (puntaje <= 6) {
                 resultado += "Riesgo bajo de diabetes. 1 de cada 100 personas desarrollarán diabetes en 10 años.";
             } else if (puntaje <= 11) {
