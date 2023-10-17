@@ -72,24 +72,18 @@ button {
   margin-top: 20px;
 }
 
-/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
   body {
-    font-size: 24px; /* Cambia el tamaño de fuente según tus preferencias */
+    font-size: 28px; /* Cambia el tamaño de fuente según tus preferencias */
   }
-  .navbar {
-    padding: 5px;
+
+  .container {
+    max-width: 100%; /* Hacer que el contenedor ocupe el ancho completo de la pantalla */
   }
-  .search-form {
-    padding: 5px;
-  }
-  input[type="text"] {
-    padding: 8px;
-  }
+
+  input[type="text"],
+  input[type="email"],
   button {
-    padding: 8px 16px;
+    padding: 20px; /* Aumentar el tamaño del relleno para los campos de entrada y botones */
   }
 }
