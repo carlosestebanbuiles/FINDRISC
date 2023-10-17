@@ -3,7 +3,6 @@
 <head>
     <title>Calculadora FINDRISC</title>
 </head>
-    <script src="https://cdn.jsdelivr.net/npm/@octokit/core@5.0.1/dist-node/index.min.js"></script>
 <body>
     <h1>Calculadora FINDRISC</h1>
 
@@ -94,6 +93,7 @@
             const puntaje = edad + imc + circunferencia + actividad + comida + hta + glu + familiares;
 
             let resultado = "El puntaje FINDRISC es: " + puntaje + "<br>";
+
             if (puntaje <= 6) {
                 resultado += "Riesgo bajo de diabetes. 1 de cada 100 personas desarrollarán diabetes en 10 años.";
             } else if (puntaje <= 11) {
